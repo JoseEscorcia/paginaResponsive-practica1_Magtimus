@@ -1,0 +1,67 @@
+.container-footer{
+    width: 100%; /* Ancho */
+    padding: 40px 0px; /* Espaciado */ /* Vertical, horizontal */
+    background: #f7f7f7;
+    margin-top: 40px; /* Margen arriba */ /* Es para que guarde una separación entre articulo y el footer */
+}
+
+.container-footer footer{
+    max-width: 1200px; /* Ancho máximo */ /* Colocamos 1200px para que vaya con el mismo ancho que el NAVBAR */
+    margin: auto; /* Margen */ /*En este caso lo usamos para centrar*/
+}
+
+.container-footer footer .logo-footer{
+    text-align: center; /* Lo usamos para centrar el logo */
+}
+
+.container-footer footer .logo-footer img{
+    width: 100px; /* Ancho */
+}
+
+.container-footer footer .redes-footer{ /* Contenedor de la sección de redes */
+    display: flex; /* Usamos flexbox */ /* Lo usamos para asegurarnos que los iconos de las redes se coloquen uno al lado del otro */
+    justify-content: center; /* Centra horizontalmente */
+    margin-top: 20px; /* Margen arriba */
+}
+
+.container-footer footer .redes-footer .icon-redes-footer{ /* Es cada uno de los iconos */
+    font-size: 20px; /* Tamaño de letra */ /* Lo usamos para aumentar el tamaño de los iconos */
+    margin: 20px; /* margen en todas direcciones */
+    background: #efefef; /* Fondo */ /* Es un color que va detrás de los iconos */
+    width: 50px; /* Ancho */
+    height: 50px; /* Alto */
+    display: flex; /* Usamos flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    border-radius: 100%; /* Borde redondeado */ /* colocarlo en 100% genera un circulo */
+    color: #a2a2a2; /* Color de texto */ /* Color de iconos */  
+}
+
+.container-footer footer .redes-footer .fa-facebook-f:hover{ /* Icono de Facebook */ /* Cuando pasemos el mouse por el icono */
+    background: #41579A; /* Color de fondo */
+    color: #fff; /* Color de texto */
+}
+
+.container-footer footer .redes-footer .fa-google-plus-g:hover{ /* Icono de Google Plus */ /* Cuando pasemos el mouse por el icono */
+    background: #DE4C34; /* Color de fondo */
+    color: #fff; /* Color de texto */
+}
+
+.container-footer footer .redes-footer .fa-instagram:hover{ /* Icono de Instagram */ /* Cuando pasemos el mouse por el icono */
+    background: linear-gradient(to top right , #FCDE30, #E9712A, #D2313B, #AE4198, #7540A1, #5443A8); /* Color de fondo es un Gradiente */ /* "to top bottom" comienza arriba y termina a la derecha */
+    color: #fff; /* Color de texto */
+}
+
+.container-footer footer hr{ /* Linea del pie de página */
+    margin-top: 20px; /* Margen arriba */
+    border: none; /* Sin bordes */
+    height: 2px; /* Alto */
+    background: #c0c0c07a; /* Color de fondo */
+}
+
+.container-footer h4{
+    text-align: center; /* Centrar texto */
+    margin-top: 40px; /* Margen arriba */
+    color: #8e8e8e; /* Color de texto */
+    font-weight: 500; /* Grueso de letra */
+}

@@ -1,0 +1,110 @@
+@media screen and (max-width: 1220px){ /* Cuando llegue a un tamaño de 1220px entonces hará tal cosa */
+    .header-content, /* Contenedor de NAVBAR */
+    .containter-content, /* Contenedor de ARTICULO y ARTICULOS RELA */
+    .container-footer footer{ /* Contenedor de PIE DE PÁGINA */
+       
+        /* Aquí haremos que todo se haga un poquito más pequeño */
+        
+        max-width: 1000px; /* Ancho máximo */
+        padding: 0 20px; /* Espaciado */ /* Arriba-abajo, izquierda-derecha */
+    }
+}
+
+@media screen and (max-width: 1020px){ /* Cuando llegue a un tamaño de 1020px entonces hará tal cosa */
+
+    .containter-content{ /* Contenedor de ARTICULO y ARTICULOS RELA */
+        width: 100%; /* Ancho */
+        flex-direction: column; /* Decimos que ahora se comporte como columna */ /* Cada elemento de este contenedor ".container-content" ahora ocupará 1 fila */ /* Esto lo hacemos para que los "ARTICULOS RELACIONADOS" se ponga debajo de "ARTICULOS"*/
+    }
+
+    article{ /* Contenedor principal de sección "ARTICULO" */
+        box-shadow: 0 0 0 0; /* Sombra */ /* Eliminamos la sombra */
+    }
+
+    .container-aside{ /* Contenedor principal de sección "ARTICULOS RELACIONADOS" */
+
+        display: flex; /* Usamos flexbox */ /* Al colocar "display:flex" se comportan con "flex-direction:row" */
+        justify-content: center; /* Centra horizontalmente */
+    }
+
+    .container-aside aside{ /* Es cada Articulo Relacionado */
+        max-width: 300px; /* Ancho máximo */
+        margin: 10px; /* Margen en todas direcciones */ /* Aquí definimos un margen más pequeño que el que tenían en tamaño escritorio */
+    }
+}
+
+@media screen and (max-width: 800px){ /* Cuando llegue a un tamaño de 800px entonces hará tal cosa */
+    
+    body{ /* Todo el contenedor de la página */
+        overflow-x: hidden; /* Esconde el "scroll" horizontal */
+    }
+
+    .container-all{ /* Es el contenedor de TODO MENOS el NAVBAR */
+        transition: all 300ms cubic-bezier(1,0,0,1); /* Animación que duré 300ms */
+         /* "cubic-bezier" es para controlar el retardo de la animación, es decir:  "1,0,0,1" quiere decir que la animación inicia rápido, luego lento, lento, y luego termina rápido. */
+    }
+    
+    .move-container-all{ /* Esta clase la usaremos para mover todo el contenido de ".container-all" (contiene la portada, articulo, articulos relacionado y footer) cuando se presione el botón responsive */
+        transform: translateX(300px); /* Hace que todo el contenido del contenedor "container-all" se mueva horizontalmente 300px hacia la derecha*/
+    }
+   
+    .menu{ /* Contenedor de SECCIÓN DE OPCIONES DE MENÚ */
+        
+        width: 0px; /* Ancho */ /* Esto va a hacer que desaparezca */
+        height: 100vh; /* Es para que ocupe todo el alto de la página */
+        position: fixed; /* Posición por encima de todo */
+        top: 80px; /* Separación de arriba */ /* Son "80px" porque el HEADER tiene 80px de alto */
+        left: 0; /* Separación de la izquierda */
+        background: #fff; /* Color de fondo */
+        overflow: hidden; /* Ocultará todo lo que salga del contenedor */
+        transform: translateX(-350px); /* Es para que las opciones del menú estén ocultas hacia la izquierda "350px" antes que se presione el botón responsive. */
+        box-shadow: 10px 0 20px -25px black; /* Sombra */  /* Derecha, abajo, grosor, opacidad, color */
+        transition: all 300ms cubic-bezier(1,0,0,1); /* Para que tenga una animación suave una vez se presione el botón responsive */
+        /* "cubic-bezier" es para controlar el retardo de la animación, es decir:  "1,0,0,1" quiere decir que la animación inicia rápido, luego lento, lento, y luego termina rápido. */
+    }
+
+    .show-lateral{ /* Esta clase es para que abra el menú */
+        width: 300px; /* Ancho */
+        transform: translateX(0px); /* Hace que las opciones de menú se muevan en el eje X a la posición inicial, es decir, la "0" y no "-350px" como lo habíamos definido en la clase ".menu". */
+    }
+
+
+    .menu nav ul{ /* Contenedor de opciones de menú NAVBAR */
+
+        /* Este contenedor lo habíamos especificado en "estilosNAVBAR.css" que era "display:flex" por eso acá no lo volvemos a poner */
+
+        flex-direction: column; /* Comportamiento de bloques en forma COLUMNA */ /* Cada opción de menú ocupará una fila */
+    }
+
+    .menu nav ul li{ /* Cada opción de NAVBAR */
+        max-width: 200px; /* Ancho máximo */
+        height: 50px; /* Alto */
+        justify-content: flex-start; /* todos los elementos están alineados con el inicio del eje transversal. */ /* Esto ayuda a centrar las opciones de menú */
+    }
+
+    .menu-seleccion::before{ /* Esta clase se le aplica unicamente a las opciones de menú del "header" que hemos seleccionado */ /* Esto es donde está la linea */
+        width: 0; /* Ancho */ /* Con esto hacemos que se quite la linea azul */
+    }
+
+    .menu nav ul li a{ /* Cada etiqueta "<a>" que está dentro de "<li>" */
+        margin-top: 40px; /* Margen arriba */ /* Esto lo hacemos para que los iconos bajen un poco y logren colocarse al lado de cada "<li>" */
+        color: #858585; /* Color de texto */
+    }
+
+    .menu nav ul li a i{ /* Cada icono de opción de menú NAVBAR */ 
+        width: 20px; /* Ancho */ /* Es para que los iconos quede alineados */
+        display: inline-block; /* El elemento aparece en línea pero se comporta como un elemento block */
+        margin-right: 10px; /* Margen derecho */
+        color: #46a2fd; /* Color de texto */ /* Color de iconos */
+    }
+
+    .container-aside{ /* Sección de ARTICULOS RELACIONADOS */
+        flex-wrap: wrap; /* especifica si los elementos "hijos" son obligados a permanecer en una misma línea o pueden fluir en varias líneas. */ /* Con "wrap" decimos que se vayan desplanzando hacia abajo si ya no caben en una linea*/
+    }
+
+    #icon-menu{ /* Botón menú responsive */
+        display: flex; /* Usamos flexbox */ /* Ayuda a que aparezca y también es para que ayude a su contenido a quedarse centrado */
+
+        /* Para que se abra el menú cuando le demos click a este botón usaremos Javascript */
+    }
+}

@@ -1,0 +1,35 @@
+.container-aside aside{ /* Contenedores principales de ARTICULOS RELACIONADOS */
+    width: 320px; /* Ancho */
+    border-radius: 6px; /* Borde redondeado */ /* Tiene el mismo redondeado que el ARTICULO */
+    box-shadow: 0 0 20px -20px black; /* Sombra */ /* X,Y,desvanecimiento, grosor, color */
+    overflow: hidden; /* "overflow" permite regular la visiblidad de los contenidos que sobresalen de una caja.*/ /* Con esto hacemos que todo contenido que se salga del contenedor no se vea y se vea afectado por el "border-radius" que aplicamos en ".container-aside aside", de esta manera nuestras imagenes obtendrán un borde redondeado arriba */
+    margin-left: 40px; /* Margen izquierdo */ /* Esto lo usamos para separar la sección de "Articulo" de "Articulos Relacionados" */
+    margin-bottom: 20px; /* Margen abajo */ /* Es para separar cada "Articulo relacionado" */ /* No le agregamos "margin-top" porque entonces no estaría en la misma posición que la linea azul de ARTICULOS */
+    padding-bottom: 20px; /* Espaciado abajo */ /* Es para que no esté tan pegados del contenedor de cada ARTICULO RELACIONADO */
+}
+
+.container-aside aside img{ /* Imagenes que están dentro del ASIDE */
+    width: 100%; /* Ancho */ /* Toma todo el ancho del contenedor padre ".container-aside aside" */
+}
+
+.container-aside aside h2, /* "<h2>" que están dentro del ASIDE */
+.container-aside aside p{ /* Parrafos que están dentro del ASIDE*/
+    margin-top: 20px; /* Margen arriba */
+    padding: 0px 20px; /* Espaciado arriba-abajo, derecha-izquierda */
+}
+
+.container-aside aside button{ /* Los botones que están dentro de ASIDE */
+    margin-top: 20px; /* Margen arriba */
+    margin-left: 20px; /* Margen izquierda */
+    padding: 10px 50px; /* Espaciado arriba-abajo,  derecha-izquierda*/
+    font-size: 16px; /* Tamaño de letra */
+    background: #46a2fd; /* Color de fondo */
+    border: none; /* Quita el borde que viene por defecto en los "buttons" */
+    color: #fff; /* Color de texto */
+    cursor: pointer; /* Para que ponga el cursor "mano" */
+    border-radius: 6px; /* Borde redondeado */ /* Tiene el mismo redondeo que tienen los ARTICULOS */
+}
+
+.container-aside aside button:hover{ /* Cuando pasemos el mouse por encima del botón */
+    opacity: 0.9; /* Opacidad */
+}

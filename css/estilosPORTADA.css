@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap'); /* Importamos tipografía en Google Fonts */ /* La fuente se llama "Source Sans Pro" */
+
+.container-cover{ /* Es el contenedor principal de toda la portada */
+    width: 100%; /* Ancho */
+    height: 500px; /* Alto */
+    position: relative;
+    margin-top: 80px; /* Pone como un espaciado arriba */  /* Son 80px porque en el archivo "estilosNAVBAR.css" habiamos definido que la altura del NAVBAR era de 80px */ /* Esto también ayudará a que empuje el contenido del "Artículo" hacia abajo y así no se recorte nada. */
+    background-image: url(../img/img8.jpg); /* Agregamos una imagen como fondo */
+    background-position: center; /* Centramos la imagen que pusimos de fondo */
+    background-size: cover; /* Sirve para que si agrandamos la imagen también se agrande, y si disminuimos también la imagen baja de tamaño. */
+    background-repeat: no-repeat; /*Para que la imagen no se repita*/ 
+    font-family: 'Source Sans Pro', sans-serif; /* Tipografía */
+}
+
+.container-cover::before{ /* Aquí crearemos el cuadro "azul" para la portada */
+    content: ''; /* Sin contenido */ /* Es para que la capa "azul" no tenga ningún contenido */
+    width: 100%; /* Ancho */ /* Para que ocupe todo el ancho */
+    height: 100%; /* Alto */ /* Para que ocupe toda la pantalla */
+    background: rgb(38, 172, 255, 0.8); /* "0.8" es la opaciada */
+    position: absolute; /* Para que se relacione solamente con el tamaño del contenedor padre (.container-cover) */
+    top: 0; /* Se queda arriba */
+    left: 0;  /* Se pega también desde la izquierda */
+}
+
+.container-info-cover{ /* En el texto que va en la portada */
+    max-width: 800px; /* Ancho máximo */
+    height: 500px; /* Altura */ /* Le colocamos 500px para que lleve la misma altura de su contenedor padre (.container-cover) */
+    margin: auto; /* Para centrar horizontalmente */
+    text-align: center; /* Centrar texto */
+    display: flex; /* Usamos flexbox */
+    flex-direction: column; /* "flex-direction" especifica cómo colocar los objetos */ /* En este caso lo usamos para que los texto se coloquen uno debajo del otro */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    position: relative;
+    z-index: 1; /* Es para que se coloque por encima del "filtro" azul que diseñamos */
+}
+
+.container-info-cover h1{ /* Titulo que está en la portada */
+    font-size: 60px; /* Tamaño de letra */
+    font-weight: 500; /* Grueso de letra */
+    color: #fff; /* Color de texto */
+    margin-bottom: 20px; /* Margen abajo */
+}
+
+.container-info-cover p{ /* Parrafo que está en la portada */
+    font-size: 20px; /* Tamaño de letra */
+    font-weight: 300; /* Grueso de letra */
+    color: #fff; /* Color de texto */
+}

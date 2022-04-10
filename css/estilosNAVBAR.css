@@ -1,0 +1,143 @@
+*{ /* "*" es el selector universal */ /* Aquí vamos a quitar el margen y el padding que el navegador agrega por defecto */
+    margin: 0px; /* Quitamos el margen que viene por defecto */
+    padding: 0px; /* Quitamos el padding que viene por defecto */
+    box-sizing: border-box; /* Sirve para que mantenga el tamaño que especificamos a un elemento y no el que se crea luego de agregar "margin" o "padding" a este. */
+    text-decoration: none; /* Es para quitarle la decoración de "subrayado" que viene por defecto en los elementos "<a>" */
+    font-family: sans-serif; /* Definimos tipografía */
+}
+
+header{ /* Es el contenedor principal de la "cabecera" */
+    position: fixed; /* Definimos que nuestra cabecera siempre se mantenga arriba sin importar si dan "scroll" con el mouse. */
+    top: 0px; /* Esto es para que se mantenga pegado arriba */
+    left: 0px; /* El "navbar" no va a tener separaciones de la izquierda */
+    width: 100%; /* Ancho total de la pantalla */
+    height: 80px; /* Alto */
+    background: #fff; /* Color de fondo */
+    box-shadow: 0px 4px 25px -22px black; /* "0" significa que no tendrá ancho de izquierda-derecha*/ /* "4px" significa que tendrá una sombra abajo de 4px */ /* "25px"  es la opacidad*/ /* "-22px" es la posición de la sombra */
+    z-index: 2; /* Es para indicar que el header se mantenga por encima de todo */ /* "z-index" Cuando varios elementos se superponen, los elementos con mayor valor z-index cubren aquellos con menor valor. */
+}
+
+.header-content{ /* Contenedor secundario de la cabecera */
+    max-width: 1200px; /* Ancho máximo */
+    /* 
+         Nota importante: 
+        Cuando se abre la página desde una pantalla demasiado grande los elementos que están con las propiedades "space-between" suelen repartirse entre los bordes izquierda-derecha (como es lo normal) pero al ser la pantalla muy grande se dificulta un poco leerlos porque están muy separados de sí, por eso colocamos el "max-width" en un tamaño como 1200px, si ya la pantalla es más grande entonces el contenido del NAVBAR va a estar más centrado (gracias al "margin: auto") para facilitar la lectura.
+    */
+    margin: auto; /* Centra el contenido del header */
+    display: flex; /* Usamos flexbox */
+    justify-content: space-between; /*"justify-content" alinea horizontalmente */ /* "space-between" alinea los elementos uno a la izquierda y el otro a la derecha */
+}
+
+.logo{ /* Espacio donde va el logo */
+    height: 80px; /* Alto */ /* Le colocamos "80px" para que quede en el centro de forma vertical. Esta altura es porque el contenedor padre (header) mide "80px".*/ /* Aún no se ha centrado porque falta colocar el "display:flex;" y "align-items:center;" */
+    display: flex; /* Usamos flexbox */
+    align-items: center; /* Centra verticalmente */
+}
+
+.logo h1 b{ /* Etiqueta "<b>" que está dentro de la etiqueta "<h1>"  y a su vez dentro de la clase "logo" */
+    color: #46a2fd; /* Color de texto */
+}
+
+.menu{ /* Contenedor primario de opciones del menú */
+    height: 80px; /* Altura */ /* Ocupará 80px porque el contenedor padre (header) mide 80px  y así poder centrarlo */
+}
+
+.menu nav{ /* Contenedor secundario de opciones del menú */
+    height: 100%; /* Altura máxima dentro del contenedor ".menu".*/ /* Con esto nos aseguramos que el "nav" si esté ocupando todo el alto que definimos en la clase ".menu". */
+}
+
+.menu nav ul{ /* Contenedor secundario de opciones del menú */
+    height: 100%; /* Altura máxima dentro del contenedor "nav".*/ /* Con esto nos aseguramos que el "ul" si esté ocupando todo el alto que definimos en la etiqueta "nav"*/
+    display: flex; /* Usamos flexbox */ /* Viene que por defecto se comporten como elementos "inline" */
+    list-style: none; /* Quita los "puntos" que vienen por defecto en los elementos de lista (<ul>) */
+}
+.menu nav ul li{ /* Opciones de menú */
+    height: 100%; /* Altura */ /* Con esto nos aseguramos que ocupen el 100% de espacio de sus contenedores padres */
+    margin: 0px 20px; /*"0px" sin margen vertical y con margen horizontal de "20px" */ /* Esto es para separar las opciones del menú */
+    display: flex; /* Usamos flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    position: relative; /* Esto es para que la linea que creamos en ".menu nav ul li::before" se relacione solamente con el ancho de las opciones de menú. */
+}
+
+/* .menu nav ul li::before{ */ /* Aquí vamos a dibujar la linea azul que aparece sobre las opciones de menú seleccionadas */
+
+    /* 
+        Nota:
+        Los pseudo-elementos ::before y ::after (existen desde CSS2) insertan contenido, mediante CSS, delante (before) y respectivamente detrás (after) del contenido de un elemento html.
+    
+    */
+
+    /* "::before" es en CSS 3 y ":before" en CSS 2.1 */
+    /* ":before" es un pseudo-elemento */
+    /* ":before" se utiliza junto con "content" para agregar contenido "antes" o "después" del contenido*/
+
+    /* content: ''; */ /* Contenido vacío */
+    /* width: 100%; */ /* Ancho */
+    /* height: 4px; */ /* Alto */
+    /* background: #46a2fd; */ /* Color de fondo */
+    /* position: absolute; */ /* Es para que esté fuera del documento HTML y así se pueda ver */
+
+    /* Hasta este punto ya sale una linea azul */
+
+    /* Ahora para hacer que la linea que hemos dibujado se quede arriba y pegado hacia la izquierda */
+    /* top: 0; */ /* Se queda arriba */
+    /* left: 0; */  /* Se pega también desde la izquierda */
+
+    /* Hasta este punto tendremos una linea azul que va desde la izquierda hasta la derecha */
+
+    /* 
+    Para hacer que la linea solo se quede sobre el elemento seleccionado debemos hacer que ocupe solamente el ancho del elemento seleccionado, debemos jugar con el "relative" y el "absolute". 
+    
+    En HTML por defecto los elementos vienen relacionados con "position: relative", por lo cual todos los elementos que agreguemos irían relacionados con el "relative". 
+    Por lo tanto, para que la linea que creamos se relacione solo con el ancho de las opciones del menú debemos colocarle al elemento padre de las opciones de menú (.menu nav ul li) un "position:relative".
+
+    Pero hasta este punto aún tenemos un problema, y es que la linea se coloca encima de todas las opciones de menú y nosotros solo queremos que aparezcan en la opción de menú.
+
+    Para solucionar este problema vamos a crear una clase llamada "menu-seleccion", la cual le aplicaremos a la opción de menú que le demos click, y a esa clase le colocaremos las mismas propiedades que hemos colocado acá.
+
+    A partir de ahora vamos a comentar todo lo de esta clase ".menu nav ul li::before" porque ya la pasaremos unicamente a "menu-seleccion::before".
+    */
+/* } */
+
+.menu-seleccion::before{ /* Esta clase se la aplicaremos unicamente a las opciones de menú del "header" que hemos seleccionado */
+    content: ''; /* Contenido vacío */
+    width: 100%; /* Ancho */
+    height: 4px; /* Alto */
+    background: #46a2fd; /* Color de fondo */
+    position: absolute; /* Es para que esté fuera del documento HTML y así se pueda ver */
+
+    /* Ahora para hacer que la linea que hemos dibujado se quede arriba y pegado hacia la izquierda */
+    top: 0; /* Se queda arriba */
+    left: 0;  /* Se pega también desde la izquierda */
+
+    /* Con esta clase ya hemos arreglado el problema que se presentaba en ".menu nav ul li::before" */
+}
+
+.menu nav ul li a{ /* Opciones del NAVBAR */
+    color: #777777; /* Color de texto */
+    font-size: 18px; /* Tamaño de fuente */
+}
+
+.menu nav ul li a:hover{ /* Cuando pasen el mouse por encima de alguna de las opciones del menú NAVBAR */
+    color: #46a2fd; /* Color de texto */
+    transition: color 700ms; /* Para que haya una transición unicamente en el cambio de color y que dure 700ms cambiando de color*/
+}
+
+.menu nav ul li a i{
+    display: none; /* Los iconos de las opciones de menú se ocultan */
+}
+.menu .texto-menu-seleccion{ /* Esta clase solo se le aplica a la opción del menú NAVBAR a la que se le dio CLICK */
+
+    /* 
+        Nota: 
+        Si no se le agrega la clase ".menu" a la clase ".texto-menu-seleccion" no se vería aplicada en la página porque no tiene tanto "peso" en especificidad en comparación con ".menu nav ul li a". 
+
+        En resumen, se le agrega la clase ".menu" para ser más especifico al momento de seleccionar el elemento "<a>" que hemos seleccionado en el menú de opciones NAVBAR.
+    */
+    color: #46a2fd; /* Color de texto */
+}
+
+/* 
+    Hasta este punto ya terminamos el NAVBAR, pero aún queda un problema por solucionar, y es el hecho de que como el NAVBAR lo pusimos con "position:fixed;" entonces el NAVBAR no ocupa ningún espacio en el documento HTML, por lo tanto, en el archivo "estilosPORTADA.css" debemos agregar un espaciado arriba para que el NAVBAR no se "tape" un pedazo de ese contenido. 
+*/

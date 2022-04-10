@@ -1,0 +1,43 @@
+.containter-content{ /* Contenedor principal */
+    width: 1200px; /* Ancho */ /* Colocamos 1200px para que vaya con el mismo ancho que el NAVBAR */
+    margin: auto; /* Lo usamos para centrar */
+    margin-top: 40px; /* Para colocar una pequeña separación entre la portada y el Articulo */
+    display: flex; /* Usamos flexbox */ /* Esto lo aplicamos para que la sección de "ARTICULOS RELACIONADOS" aparezca al lado derecho. Esto es debido a que cuando aplicamos "display:flex" viene por defecto para comportarse como elementos "flex-direction:row" */
+    justify-content: center; /* Centra horizontalmente */
+}
+
+article{
+    width: 100%; /* Ancho */
+    padding: 20px; /* Da un pequeño espaciado */
+    padding-bottom: 40px; /* Separación entre el articulo y el PIE DE PÁGINA (footer) */
+    box-shadow: -10px 0 20px -30px black; /* Sombra */ /* Está a la izquierda */ /* Parametros del box-shadow: desplazamientos en X e Y, los radios de desenfoque y dispersión, y el color.*/
+    border-radius: 6px; /* Borde redondeado */ /* Esto también sirvió para crear el efecto de "semi-redondeado" a la linea que dibujaremos en "article::before" */
+    overflow: hidden; /* "overflow" permite regular la visiblidad de los contenidos que sobresalen de una caja.*/
+    position: relative; /* Es para que la linea que dibujaremos en "article::before" se relacione solo en base a el contenedor "article" */
+}
+article::before{ /* Aquí dibujaremos la linea AZUL que está encima del artículo */
+    content: ''; 
+    width: 100%; /* Ancho */ 
+    height: 6px; /* Alto */
+    position: absolute; /* Es para que se relacione con el contenedor "article" */
+    top: 0px; /* Para que se mantenga pegado arriba */
+    left: 0px; /* Para que se mantenga pegado a la izquierda */
+    background: #46a2fd; /* Color de fondo */
+}
+
+article h1{ /* Titulo del articulo */
+    margin-top: 20px; /* Margen arriba */ /* Separa un poco el titulo del articulo con la linea azúl */
+    font-weight: 500; /* Grueso de letra */
+    font-size: 40px; /* Tamaño de letra */
+}
+
+article p{ /* Parrafos dentro de la etiqueta <article> */
+    margin-top: 20px; /* Margen arriba */ /* Separa un poco el parrafo del titulo */
+    font-size: 18px; /* Tamaño de letra */
+    color: #3c3c3c; /* Color de texto */
+}
+
+article img{ /* Imagen de artículo */
+    width: 100%; /* Ancho */ 
+    margin-top: 20px; /* Margen arriba */
+}
